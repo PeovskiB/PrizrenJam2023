@@ -10,6 +10,8 @@ public class CampFire : MonoBehaviour
 
     float duration = 15f;
 
+    [SerializeField] float intensity = 2f;
+
     [SerializeField] private Transform fireSprite;
     [SerializeField] private Light2D fireLight;
 
@@ -26,8 +28,8 @@ public class CampFire : MonoBehaviour
         if(fireSprite != null)
             fireSprite.localScale = new Vector2(strenght, strenght);
         if(fireLight != null)
-            fireLight.intensity = strenght;    
+            fireLight.intensity = strenght*intensity;    
         if(strenght <= 0)
-            Destroy(gameObject);
+            Destroy(gameObject);    
     }
 }
