@@ -11,16 +11,12 @@ public class BerryBush : MonoBehaviour
 
     [SerializeField] private Transform berries;
 
-    private static Transform playerTransform;
-
     private float pickRadius = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         hasBerries = true;
-        if(playerTransform == null)
-            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -54,7 +50,7 @@ public class BerryBush : MonoBehaviour
     }
 
     bool CheckIfInRadius(){
-        if(Vector2.Distance(transform.position, playerTransform.position) <= pickRadius)
+        if(Vector2.Distance(transform.position, Movement.GetPlayerTransform().position) <= pickRadius)
             return true;
         return false;    
     }

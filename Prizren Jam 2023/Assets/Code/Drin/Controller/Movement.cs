@@ -26,6 +26,13 @@ public class Movement : MonoBehaviour
     private Rigidbody2D body;
     private static Movement instance;
 
+    private static Transform playerTransform;
+
+    void Awake(){
+        if(playerTransform == null)
+            playerTransform = transform;
+    }
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -103,5 +110,9 @@ public class Movement : MonoBehaviour
     public static bool IsExhausted()
     {
         return instance.exhausted;
+    }
+
+    public static Transform GetPlayerTransform(){
+        return playerTransform;
     }
 }
