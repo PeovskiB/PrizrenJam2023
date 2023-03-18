@@ -85,8 +85,8 @@ public class PlayerStats : MonoBehaviour
     }
 
     void DrainStats(){
-        Hunger -= Time.deltaTime / DayCycle.GetDayLengthInSeconds() * hungerDuration;
-        Energy -= Time.deltaTime / DayCycle.GetDayLengthInSeconds() * energyDuration;
+        Hunger -= Time.deltaTime / DayCycle.GetDayLengthInSeconds() * 24 / hungerDuration;
+        Energy -= Time.deltaTime / DayCycle.GetDayLengthInSeconds() * 24  / energyDuration;
         if(Hunger <= 0)
             Health -= Time.deltaTime * healthDrainRate;
         if(Energy <= 0)

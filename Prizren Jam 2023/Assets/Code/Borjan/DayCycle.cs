@@ -44,7 +44,7 @@ public class DayCycle : MonoBehaviour
     }
 
     TimeOfDay timeOfDay;
-    [SerializeField] static float dayLenghtInSeconds = 150f;
+    [SerializeField] static float dayLenghtInSeconds = 30f;
     [SerializeField] TextMeshProUGUI timeText;
 
     [SerializeField] Light2D dayLight;

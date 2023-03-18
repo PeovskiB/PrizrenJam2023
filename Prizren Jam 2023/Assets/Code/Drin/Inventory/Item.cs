@@ -7,7 +7,6 @@ public class Item
     public int quantity = 1;
     public int durability;
     public ItemData data;
-    private Item new_item;
     public delegate void QuantityAction(int new_quantity);
     public event QuantityAction OnQuantityChange;
 
