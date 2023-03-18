@@ -44,7 +44,7 @@ public class DayCycle : MonoBehaviour
     }
 
     TimeOfDay timeOfDay;
-    [SerializeField] float dayLenghtInSeconds = 150f;
+    [SerializeField] static float dayLenghtInSeconds = 150f;
     [SerializeField] TextMeshProUGUI timeText;
 
     [SerializeField] Light2D dayLight;
@@ -61,5 +61,9 @@ public class DayCycle : MonoBehaviour
         timeOfDay.PassTime();
         timeText.text = timeOfDay.GetTimeString();
         dayLight.intensity = timeOfDay.GetLightLevel();
+    }
+
+    public static float GetDayLengthInSeconds(){
+        return dayLenghtInSeconds;
     }
 }
