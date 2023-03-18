@@ -11,28 +11,36 @@ public class ItemUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
     private CanvasGroup canvas_gr;
     private Image image;
     private TextMeshProUGUI text;
-    private void Awake(){
+    private void Awake()
+    {
         rect_trans = GetComponent<RectTransform>();
         canvas_gr = GetComponent<CanvasGroup>();
         image = GetComponent<Image>();
         text = GetComponentInChildren<TextMeshProUGUI>();
     }
-    private void OnDisable(){
+    private void OnDisable()
+    {
         if (data != null)
-        data.OnQuantityChange -= SetText;
+            data.OnQuantityChange -= SetText;
     }
-    public void Setup(Item new_data, Transform new_ui_parent){
+    public void Setup(Item new_data, Transform new_ui_parent)
+    {
         ui_parent = new_ui_parent;
         data = new_data;
         data.OnQuantityChange += SetText;
         data.QuantityAdd(0);
         image.sprite = new_data.data.icon;
     }
-    private void SetText(int new_qty){
-        text.text = new_qty.ToString();
+    private void SetText(int new_qty)
+    {
+        string txt = "";
+        if (new_qty != 1)
+            txt = new_qty.ToString();
+        text.text = txt;
     }
-    public void ResetPosition(){
-        slot.PivotItem(this);            
+    public void ResetPosition()
+    {
+        slot.PivotItem(this);
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -42,7 +50,7 @@ public class ItemUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHa
 
     public void OnDrag(PointerEventData eventData)
     {
-        rect_trans.anchoredPosition += eventData.delta;
+        rect_trans.position = eventData.position;
         canvas_gr.alpha = 0.5f;
     }
 
