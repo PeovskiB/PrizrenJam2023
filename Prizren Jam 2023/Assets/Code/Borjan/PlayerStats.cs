@@ -115,7 +115,7 @@ public class PlayerStats : MonoBehaviour
         GameObject[] campFires = GameObject.FindGameObjectsWithTag("Campfire");
         bool isSafe = false;
         foreach(GameObject c in campFires){
-            if(Vector2.Distance(c.transform.position, Movement.GetPlayerTransform().position) > minDistanceFromCampfire){
+            if(Vector2.Distance(c.transform.position, Movement.GetPlayerTransform().position) <= minDistanceFromCampfire){
                 isSafe = true;
                 break;
             }
