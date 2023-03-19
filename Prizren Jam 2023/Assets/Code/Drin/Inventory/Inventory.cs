@@ -29,6 +29,34 @@ public class Inventory : MonoBehaviour
     {
         items = new List<Item>();
     }
+    public bool HasItemQty(ItemData i, int qty)
+    {
+        foreach (Item it in items)
+        {
+            if (it.data == i && it.quantity >= qty)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public void AddItem(ItemData id)
+    {
+        Item newItem = new Item(id.name, 1, id.max_durability, id);
+        Item item = items.Find(x => x.name == newItem.name && x.quantity < x.data.max_quantity);
+
+        if (item != null)
+            newItem.quantity = item.QuantityAdd(item.QuantityAdd(newItem.quantity));
+
+        if (newItem.quantity > 0 && items.Count < data.max_items)
+        {
+            Item added_item = new Item(newItem);
+            items.Add(added_item);
+
+            if (OnAdd != null)
+                OnAdd(added_item);
+        }
+    }
     public void AddItem(ItemObject new_item_object)
     {
         if (new_item_object == null) return;
@@ -61,6 +89,16 @@ public class Inventory : MonoBehaviour
             new_item_object.Drop(item);
             if (OnRemove != null)
                 OnRemove(item);
+        }
+    }
+    public void RemoveItemQty(ItemData item, int qty)
+    {
+        Item i = items.Find((Item ist) => (ist.data == item));
+        i.QuantityAdd(-qty);
+        if (i.quantity == 0)
+        {
+            InventoryUI.instance.RemoveItem(i);
+            items.Remove(i);
         }
     }
 }

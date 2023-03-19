@@ -54,12 +54,21 @@ public class InventoryUI : MonoBehaviour
     {
         foreach (ItemSlotUI slot in slots)
         {
-            if (!slot.CanTake(new_item)) continue;
+            if (!slot || !slot.CanTake(new_item)) continue;
             ItemUI i = Instantiate(data.item_ui).GetComponent<ItemUI>();
             i.Setup(new_item, data.top_ui_parent);
             slot.SetItem(i);
             return;
         }
+    }
+    public void RemoveItem(Item item)
+    {
+        foreach (ItemSlotUI slot in slots)
+            if (slot.HasItem(item))
+            {
+                Destroy(slot.item.gameObject);
+                slot.SetItem(null);
+            }
     }
     public void RemoveItem(ItemUI item)
     {

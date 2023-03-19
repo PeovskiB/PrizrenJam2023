@@ -12,6 +12,13 @@ public class Item
     public event IntAction OnDurabilityChange;
     public delegate void UseAction(Item i);
     public event UseAction OnUse;
+    public Item(string n, int qty, int dur, ItemData id)
+    {
+        name = n;
+        quantity = qty;
+        durability = dur;
+        data = id;
+    }
     public Item(Item other)
     {
         name = other.name;
