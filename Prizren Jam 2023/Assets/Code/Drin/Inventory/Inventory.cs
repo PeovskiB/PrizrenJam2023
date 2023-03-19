@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     public InventoryData data;
     private List<Item> items;
+    public List<Item> startItems;
     public delegate void ItemAddAction(Item new_item);
     public event ItemAddAction OnAdd;
     public delegate void ItemRemoveAction(Item item);
@@ -28,6 +29,9 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         items = new List<Item>();
+        foreach (Item i in startItems)
+            for (int j = 0; j < Random.Range(2, 10); j++)
+                AddItem(i.data);
     }
     public bool HasItemQty(ItemData i, int qty)
     {
