@@ -24,7 +24,7 @@ public class DayCycle : MonoBehaviour
             }
         }
 
-        int GetHour(){
+        public int GetHour(){
             return (int)Mathf.Floor(hour);
         }
 
@@ -41,6 +41,13 @@ public class DayCycle : MonoBehaviour
             return Mathf.Lerp(0.1f, 0.9f, x);
         }
 
+        public void PassHours(float x){
+            hour += x;
+            if(hour >= 24f){
+                hour -= 24;
+            }
+        }
+
     }
 
     TimeOfDay timeOfDay;
@@ -48,6 +55,15 @@ public class DayCycle : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeText;
 
     [SerializeField] Light2D dayLight;
+
+    public static DayCycle instance;
+
+    void Awake(){
+        if(instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -65,5 +81,13 @@ public class DayCycle : MonoBehaviour
 
     public static float GetDayLengthInSeconds(){
         return dayLenghtInSeconds;
+    }
+
+    public void AddHours(float x){
+        timeOfDay.PassHours(x);
+    }
+
+    public float GetHour(){
+        return timeOfDay.GetHour();
     }
 }

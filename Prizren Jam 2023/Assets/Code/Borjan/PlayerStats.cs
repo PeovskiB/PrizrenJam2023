@@ -18,6 +18,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] Slider hungerBar;
     [SerializeField] Slider energyBar;
 
+    float SleepCooldown = 8;
+    float sleepCounter = 0;
+
+    private float minDistanceFromCampfire=10f;
+
 
     private float hunger;
     public float Hunger{
@@ -82,6 +87,10 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         DrainStats();
+        if(sleepCounter > 0)
+            sleepCounter -= Time.deltaTime / DayCycle.GetDayLengthInSeconds() * 24 / SleepCooldown;
+        if(sleepCounter <= 0  && Input.GetKeyDown(KeyCode.F))
+            Sleep();    
     }
 
     void DrainStats(){
@@ -96,4 +105,27 @@ public class PlayerStats : MonoBehaviour
     void Die(){
 
     }
+
+    void Sleep(){
+        Energy = 1;
+        Hunger -= 0.3f;
+        sleepCounter = SleepCooldown;
+        DayCycle.instance.AddHours(8);
+        //Check if a campfire is nearby, if not lose health unless it's day
+        GameObject[] campFires = GameObject.FindGameObjectsWithTag("Campfire");
+        bool isSafe = false;
+        foreach(GameObject c in campFires){
+            if(Vector2.Distance(c.transform.position, Movement.GetPlayerTransform().position) <= minDistanceFromCampfire){
+                isSafe = true;
+                break;
+            }
+        }
+        if(DayCycle.instance.GetHour() > 6 && DayCycle.instance.GetHour() < 17)
+            isSafe = true;
+        if(!isSafe){
+            Health -= 0.2f;
+        }
+
+    }
+
 }
