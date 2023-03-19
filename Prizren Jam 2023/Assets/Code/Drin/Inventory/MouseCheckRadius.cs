@@ -9,9 +9,14 @@ public class MouseCheckRadius : MonoBehaviour
     public Transform player;
     private bool down = false;
     public float newZ;
+
+    void Awake(){
+        if (instance == null) instance = this;
+    }
     void Start()
     {
-        if (instance == null) instance = this;
+        
+        Debug.LogWarning(instance);
     }
     void Update()
     {

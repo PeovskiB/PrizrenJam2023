@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc622a6676e2d0c4c880059edbed8ea4, type: 3}
-  m_Name: Rock
+  m_Name: Stone
   m_EditorClassIdentifier: 
   type: 3
   max_quantity: 20
   max_durability: 0
-  icon: {fileID: 21300000, guid: be340a165cb9c8d4cb50f1deeb51d4ea, type: 3}
+  icon: {fileID: 21300000, guid: 537dd59c5891f2e42a2a3050d87f9564, type: 3}
   any_properties: []
   use_layer:
     serializedVersion: 2
