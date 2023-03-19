@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &70786987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 70786988}
+  m_Layer: 0
+  m_Name: hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &70786988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70786987}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.6, y: 0.521, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6160988141349296290}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6160988141349296294
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,9 +43,12 @@ GameObject:
   - component: {fileID: 6160988141349296291}
   - component: {fileID: 6160988141349296288}
   - component: {fileID: 6160988141349296289}
+  - component: {fileID: 236050205}
+  - component: {fileID: 236050200}
+  - component: {fileID: 236050201}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,11 +60,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6160988141349296294}
-  m_LocalRotation: {x: -0.00013592838, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.00013969112, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.028313309, z: -1.6656086}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 70786988}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.016, y: 0, z: 0}
@@ -73,7 +108,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1668968111
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -133,3 +168,66 @@ MonoBehaviour:
     fovShake: 0
     shakeTime: 0.1
   sprint: 1
+--- !u!58 &236050205
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160988141349296294}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.21133333}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &236050200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160988141349296294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dde807e5535a6094bb0b4cb7121104de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    max_items: 42
+    item_object: {fileID: 2412041148067269192, guid: 65c14ef11e60c9c4894d003af288e5ac, type: 3}
+    drop_transform: {fileID: 6160988141349296290}
+--- !u!114 &236050201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160988141349296294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1577f128ccda84a9f966230c769581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
+  main:
+    name: 
+    quantity: 0
+    durability: 0
+    data: {fileID: 0}
+  mainSlot: {fileID: 0}
+  startMain:
+    name: Stone Axe
+    quantity: 1
+    durability: 20
+    data: {fileID: 11400000, guid: 8c1c823e980c32746aed84610b491be3, type: 2}
+  baseObject: {fileID: 2412041148067269192, guid: 65c14ef11e60c9c4894d003af288e5ac, type: 3}
+  drop: {fileID: 70786988}
+  useRadius: 2
+  itemsLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  useCheckCollider: {fileID: 0}

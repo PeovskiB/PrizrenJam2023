@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3947961065757534231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3947961065757534229}
+  - component: {fileID: 3947961065757534230}
+  - component: {fileID: 3947961065757534228}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3947961065757534229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947961065757534231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3947961065757534230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947961065757534231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23abc28cfc9a87b48bf353292b2c9c8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  data:
+    should_build: 1
+    max_slots: 42
+    build_from: []
+    ui_parent: {fileID: 0}
+    top_ui_parent: {fileID: 0}
+    item_ui: {fileID: 6500718116183681421, guid: 33af9229368e43645aacb03e240dea7f, type: 3}
+    slot: {fileID: 7670421658255552372, guid: ed97b2d0768036a4cbfa9e87027373b1, type: 3}
+    drop: {fileID: 2855760531513064486, guid: 86ab62abbf18a8c4bab0659f4c6c98a1, type: 3}
+  slots: []
+--- !u!114 &3947961065757534228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3947961065757534231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717f11d2b865aea4ca08d13c8e9bcf2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipes:
+  - ingredients:
+    - i: {fileID: 11400000, guid: 49a7ae1a76ba9b8428b57984619c260c, type: 2}
+      qty: 2
+    result: {fileID: 11400000, guid: 8c1c823e980c32746aed84610b491be3, type: 2}
+  - ingredients:
+    - i: {fileID: 11400000, guid: 49a7ae1a76ba9b8428b57984619c260c, type: 2}
+      qty: 3
+    - i: {fileID: 11400000, guid: 1961e6d468632b041aa687b28ed3faa5, type: 2}
+      qty: 1
+    result: {fileID: 11400000, guid: 624d9480ffd67aa49adad83fe9251c77, type: 2}
+  viewParent: {fileID: 0}
+  craftingPanel: {fileID: 0}
+  viewRecipeBase: {fileID: 3165492294965011643, guid: 280948b57b6d565409090c3d57fce3bf, type: 3}

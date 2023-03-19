@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc622a6676e2d0c4c880059edbed8ea4, type: 3}
-  m_Name: Gold
+  m_Name: Weed
   m_EditorClassIdentifier: 
-  type: 3
-  max_quantity: 20
-  max_durability: 0
-  icon: {fileID: 21300000, guid: 4ad733c108f28fb4299f2e8acab8a21d, type: 3}
-  any_properties: []
+  type: 2
+  max_quantity: 1
+  max_durability: 10
+  icon: {fileID: 21300000, guid: 369b5b34091ec9040b1e2a190f03f1e2, type: 3}
+  any_properties:
+  - 0.2
+  - 1
   use_layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
