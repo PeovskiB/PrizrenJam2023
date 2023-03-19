@@ -24,6 +24,11 @@ public class ItemSlotUI : MonoBehaviour, IDropHandler
     {
         return (check_item == null ? item != null : item == check_item);
     }
+    public bool HasItem(Item check_item)
+    {
+        if (item == null) return false;
+        return (check_item == null ? item != null : item.data == check_item);
+    }
     public bool CanTake(Item item)
     {
         return !HasItem() && (accept_type == ItemType.General || accept_type == item.data.type);
