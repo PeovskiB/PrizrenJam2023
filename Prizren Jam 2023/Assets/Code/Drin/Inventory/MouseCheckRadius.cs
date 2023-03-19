@@ -8,13 +8,16 @@ public class MouseCheckRadius : MonoBehaviour
     public static MouseCheckRadius instance;
     public Transform player;
     private bool down = false;
+    public float newZ;
     void Start()
     {
         if (instance == null) instance = this;
     }
     void Update()
     {
-        transform.position = player.position;
+        Vector3 newPos = player.position;
+        newPos.z = newZ;
+        transform.position = newPos;
     }
     public static bool IsDown()
     {
